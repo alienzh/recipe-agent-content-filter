@@ -21,6 +21,10 @@ redaction by voice just by saying a banned term. STT (Deepgram nova-3) and TTS
 - [ngrok](https://ngrok.com/) (or any tunnel to expose localhost) — required so
   Agora cloud can reach the `/llm` endpoint on the backend
 
+The same commands work on macOS, Linux, and Windows. On macOS/Linux, setup uses
+`python3`; on Windows, it uses the Python launcher (`py`) or `python`. WSL and
+virtualenv activation are not required.
+
 ## Run It
 
 ```bash
@@ -205,6 +209,7 @@ A production endpoint should also validate the `Authorization: Bearer` header.
 | `doctor:local` warns about localhost | Replace the local URL with your public tunnel URL. |
 | Local calls fail / hang under a global proxy | Configure your proxy to route `127.0.0.1`, `localhost`, and RFC-1918 ranges DIRECT. |
 | `Missing server/venv` during verify | Run `bun run setup` (creates the venv). |
+| Windows asks to install a WSL distribution | Pull the latest changes and rerun `bun run setup`; the setup scripts do not require WSL. |
 | Want different banned terms | Set `FILTER_BANNED_TERMS=term1,term2` in `server/.env.local`. |
 
 ## More Docs
